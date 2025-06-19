@@ -29,7 +29,10 @@ jobs:
         run: npm run build
       - name: Publish JS filename
         id: publish
-        run: for file in dist/assets/*.js; do echo "script-file=$file" >> $GITHUB_OUTPUT done  
+        run: |
+          for file in dist/assets/*.js; do
+          echo "script-file=$file" >> $GITHUB_OUTPUT
+          done
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
